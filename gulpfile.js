@@ -9,7 +9,9 @@ var rename = require("gulp-rename");
 // File Path Variables
 const files = {
   scssPath: "scss/styles.scss",
-  jsPath: "js/scripts.js"
+  jsPath: "js/scripts.js",
+  cssDest: "./css",
+  jsDest: "./js"
 };
 
 // SASS
@@ -17,7 +19,7 @@ function compileScss() {
   return src(files.scssPath)
     .pipe(wait(250))
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(dest("./css"));
+    .pipe(dest(cssDest));
 }
 
 // JS
@@ -41,13 +43,13 @@ function compileJs() {
       })
     )
     .pipe(rename({ extname: ".min.js" }))
-    .pipe(dest("./js"));
+    .pipe(dest(jsDest));
 }
 
 // Watch
 function watchFiles() {
-  watch("js/scripts.js", series(compileJs));
-  watch("scss/styles.scss", series(compileScss));
+  watch(jsPath, series(compileJs));
+  watch(scssPath, series(compileScss));
 }
 
 // Default
