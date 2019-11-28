@@ -1,10 +1,10 @@
 // Initialize Modules
-var { src, dest, watch, series } = require("gulp");
-var sass = require("gulp-sass");
-var uglify = require("gulp-uglify");
-var plumber = require("gulp-plumber");
-var wait = require("gulp-wait");
-var rename = require("gulp-rename");
+const { src, dest, watch, series } = require("gulp");
+const sass = require("gulp-sass");
+const terser = require("gulp-terser");
+const plumber = require("gulp-plumber");
+const wait = require("gulp-wait");
+const rename = require("gulp-rename");
 
 // File Path Variables
 const files = {
@@ -19,7 +19,7 @@ function compileScss() {
   return src(files.scssPath)
     .pipe(wait(250))
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-    .pipe(dest(cssDest));
+    .pipe(dest(files.cssDest));
 }
 
 // JS
@@ -35,21 +35,15 @@ function compileJs() {
         })
       )
     )
-    .pipe(
-      uglify({
-        output: {
-          comments: "/^!/"
-        }
-      })
-    )
+    .pipe(terser())
     .pipe(rename({ extname: ".min.js" }))
-    .pipe(dest(jsDest));
+    .pipe(dest(files.jsDest));
 }
 
 // Watch
 function watchFiles() {
-  watch(jsPath, series(compileJs));
-  watch(scssPath, series(compileScss));
+  watch(files.jsPath, series(compileJs));
+  watch(files.scssPath, series(compileScss));
 }
 
 // Default
