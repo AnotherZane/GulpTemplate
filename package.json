@@ -1,6 +1,6 @@
 {
   "name": "gulptemplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A basic gulp template",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FakeZane/GulpTemplate.git"
+    "url": "git+https://github.com/AnotherZane/GulpTemplate.git"
   },
-  "author": "FakeZane",
-  "license": "UNLICENSED",
+  "author": "Zane",
+  "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/FakeZane/GulpTemplate/issues"
+    "url": "https://github.com/AnotherZane/GulpTemplate/issues"
   },
-  "homepage": "https://github.com/FakeZane/GulpTemplate#readme",
+  "homepage": "https://github.com/AnotherZane/GulpTemplate#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.1",

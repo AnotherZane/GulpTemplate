@@ -8,10 +8,10 @@ const rename = require("gulp-rename");
 
 // File Path Variables
 const files = {
-  scssPath: "scss/styles.scss",
-  jsPath: "js/scripts.js",
-  cssDest: "./css",
-  jsDest: "./js"
+  scssPath: "assets/scss/styles.scss",
+  jsPath: "assets/js/scripts.js",
+  cssDest: "./assets/css",
+  jsDest: "./assets/js"
 };
 
 // SASS
